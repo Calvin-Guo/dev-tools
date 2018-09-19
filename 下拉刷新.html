@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width = device-width, initial-scale = 1.0, minimum-scale = 1.0, maximum-scale = 1.0, user-scalable = no"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta name="renderer" content="webkit">
+<meta name="msapplication-tap-highlight" content="no" /><!-- winphone 点击无高光 -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<script src=”http://libs.baidu.com/jquery/2.1.1/jquery.min.js”></script>
+<title>下拉刷新</title>
+<style>
+  .nomore{width:90%;margin:0 auto;height:40px;line-height:40px;text-align:center;color:#ccc;display:none;text-align: center;}
+.slidemore{width:90%;margin:0 auto;height:40px;line-height:40px;text-align:center;color:#FA9422;display:none;text-align: center;}
+.spinner{
+  margin: 0 auto ;
+  width: 150px;
+  text-align: center;
+  display: none;
+}
+ 
+.spinner > div {
+  width: 30px;
+  height: 30px;
+  background-color: rgb(236, 102, 101);
+ 
+  border-radius: 100%;
+  display: inline-block !important;
+  -webkit-animation: bouncedelay 1.4s infinite ease-in-out;
+  animation: bouncedelay 1.4s infinite ease-in-out;
+  /* Prevent first frame from flickering when animation starts */
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+ 
+.spinner .bounce1 {
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+ 
+.spinner .bounce2 {
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+ 
+@-webkit-keyframes bouncedelay {
+  0%, 80%, 100% { -webkit-transform: scale(0.0) }
+  40% { -webkit-transform: scale(1.0) }
+}
+ 
+@keyframes bouncedelay {
+  0%, 80%, 100% {
+    transform: scale(0.0);
+    -webkit-transform: scale(0.0);
+  } 40% {
+    transform: scale(1.0);
+    -webkit-transform: scale(1.0);
+  }
+}
+
+</style>
+</head>
+<body>
+  <!--loading-->
+    <div class="spinner">
+      <div class="bounce1"></div>
+      <div class="bounce2"></div>
+      <div class="bounce3"></div>
+      </div> 
+      <!--loading-->
+      <div class="slidemore">↑向上滑动加载更多↑</div><!--more-->
+      <div class="nomore">---已全部显示完毕---</div><!--more-->
+    </div>
+    <script>
+   /* $(document).ready(function() {
+  var basenum = 10;  //一页内容条数
+  var total = 10;
+  var totalheight = 0;
+  var range = 50;
+  var loading = false;
+  var page = 0; 
+
+  $(window).scroll(function() {
+   var srollPos = $(window).scrollTop(); //滚动条距顶部距离(页面超出窗口的高度) 
+    
+        //console.log("滚动条到顶部的垂直高度: "+$(document).scrollTop());  
+        //console.log("页面的文档高度 ："+$(document).height());  
+        //console.log('浏览器的高度：'+$(window).height());  
+        totalheight = parseFloat($(window).height()) + parseFloat(srollPos);
+        if (($(document).height() - range) <= totalheight) {
+        if(!loading){
+            /////ajax
+        loading = true;
+        page++;
+        $.ajax({
+          url: '',
+          type: 'GET',
+          dataType: 'json',
+          beforeSend: function() {
+             $('.loading').show();
+          },
+         success:function(res){
+
+              if(res   ==  ""){
+               $('.nomore').show();
+               $('.slidemore').hide()
+            }else{
+                   page++;
+                   $.each(res,function(i, item) {
+                      //循环语句
+                   });
+                  }
+           },
+          complete: function() {
+            $('.loading').hide();
+            loading = false;
+          },
+        
+        })
+       
+       }
+     };
+  });
+});*/
+    </script>
+</body>
+</html>

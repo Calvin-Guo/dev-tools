@@ -1,0 +1,25 @@
+<script>
+  Vue.filter("currency",function(index) {
+    x =  index.split(".");
+     var y = [];
+        x[0]=x[0].split("").reverse().join("");
+        for(var i=0;i<x[0].length;i+=3){
+             y.push( x[0].substr(i,3))
+        }
+        x[0] = y.join(",");
+        x[0]=x[0].split("").reverse().join("");
+
+    if(x.length==1){
+        index = index+".00"
+    }else{
+       
+        if(x[1].length==1){
+         x[1] = x[1]+"0"
+        }else{
+          x[1]=x[1].substr(0,2);
+        }
+    }
+    index = x.join(".");
+    return "￥"+index;
+});
+</script>
