@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <style>
+            *{
+                margin:0;
+                padding:0;
+                
+            }
+            .container{
+                width:400px;
+                height:60px;
+                display: inline-block;
+                border:5px solid black;
+                font-size :0;
+            }
+            .left{
+                background-color: rgb(50, 226, 50);
+                display: inline-block;
+                height:60px;
+                width:0;
+                position:relative;
+               
+            }
+            .block{
+                width:60px;
+                height:60px;
+                display: inline-block;
+                background-color: aqua;
+                position:relative;
+                left:0;
+            }
+            .status{
+                user-select:none;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="left"></div>
+            <div class="block"></div>
+        </div>
+        <div class="status">验证状态 : <span>false</span></div>
+    <script>
+        function phone(){
+            var start;//点击开始边距
+        var now;//当前距离
+        document.querySelector(".block").ontouchstart = function(e){
+            start = e.changedTouches[0].pageX
+        }
+        document.querySelector(".block").ontouchmove = function(e){
+            
+            now = e.changedTouches[0].pageX - start;
+            now = (now<0)?0:now;
+            now = (now>340)?340:now;
+            // this.style.left = now + 'px';
+            document.querySelector('.left').style.width = now +'px';
+        }
+        document.querySelector(".block").ontouchend = function(e){
+            
+            if(now == 340){
+                document.querySelector("span").innerHTML = 'ture';
+            }else{
+                document.querySelector("span").innerHTML = 'false';
+                document.querySelector('.left').style.width = 0;
+                document.querySelector('.left').style.transition = "width 1s ease";
+                now = 0;
+                document.querySelector('.left').addEventListener('transitionend',function(){
+                    this.style.transition = null
+                })
+            }
+        }
+        }
+       
+
+
+       function pc (){
+        var start;//点击开始边距
+        var now;//当前距离
+        document.onmousedown = function(e){
+            start = e.pageX;
+            document.querySelector('.left').style.transition = null
+            document.onmousemove = function(e){
+            
+            now = e.pageX - start;
+            now = (now<0)?0:now;
+            now = (now>340)?340:now;
+            // this.style.left = now + 'px';
+            document.querySelector('.left').style.width = now +'px';
+        }
+        }
+        document.onmouseup = function(e){
+            if(now == 340){
+                document.querySelector("span").innerHTML = 'ture';
+            }else{
+                console.log("up")
+                document.querySelector("span").innerHTML = 'false';
+                document.querySelector('.left').style.width = 0;
+                document.querySelector('.left').style.transition = "width 1s ease";
+                now = 0;
+                // document.querySelector('.left').addEventListener('transitionend',function(){
+                //    
+                // })
+            }
+            document.onmousemove = null;
+                // document.onmouseup = null;
+        }
+       }
+       phone()
+       pc();
+       var a = "5";
+       a.length=6
+       console.log("length" in String)
+     </script>
+    </body>
+</html>
