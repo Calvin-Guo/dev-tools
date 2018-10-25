@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS绘制各种各样的形状</title>
+</head>
+
+<body>
+    <div class="container">
+        <!-- 圆形 实心圆 -->
+        <div class="circle mar20 fl"></div>
+
+        <!-- 圆环 空心圆 -->
+        <div class="ring mar20 fl"></div>
+
+        <!-- 四个方向的半圆 -->
+        <div class="up-semicircle mar20 fl"></div>
+        <div class="lf-semicircle mar20 fl"></div>
+        <div class="down-semicircle mar20 fl"></div>
+        <div class="rt-semicircle mar20 fl"></div>
+
+        <!-- 四分之一圆 -->
+        <div class="lftop-quadrant mar20 fl"></div>
+        <div class="rttop-quadrant mar20 fl"></div>
+        <div class="rtdown-quadrant mar20 fl"></div>
+        <div class="cl"></div>
+        <div class="lfdown-quadrant mar20 fl"></div>
+
+        <!-- 叶子 -->
+        <div class="lf-leaf1 mar20 fl"></div>
+        <div class="rt-leaf1 mar20 fl"></div>
+
+        <div class="lf-leaf2 mar20 fl"></div>
+        <div class="rt-leaf2 mar20 fl"></div>
+
+        <div class="lf-leaf3 mar20 fl"></div>
+
+        <!-- 四叶草 -->
+        <div class="four-leaf mar20 fl">
+            <span class="leaf1"></span>
+            <span class="leaf2"></span>
+            <span class="leaf3"></span>
+            <span class="leaf4"></span>
+        </div>
+
+        <!-- 五叶花瓣 -->
+        <div class="five-leaf mar20 fl">
+            <span class="leaf1"></span>
+            <span class="leaf2"></span>
+            <span class="leaf3"></span>
+            <span class="leaf4"></span>
+            <span class="leaf5"></span>
+        </div>
+
+        <!-- 无穷符号 -->
+        <div class="infinite mar20 fl"></div>
+        <div class="cl"></div>
+        <!-- 心形 -->
+        <div class="live mar20 fl">
+            <span class="lf-live"></span>
+            <span class="rt-live"></span>
+        </div>
+        <!-- 吃豆人 -->
+        <div class="snake mar20 fl"></div>
+        <!-- 鸡蛋 -->
+        <div class="egg mar20 fl"></div>
+        <!-- 椭圆 -->
+        <div class="tuoyuan mar20 fl"></div>
+        <!-- 胶囊 -->
+        <div class="capsule mar20 fl"></div>
+        <!-- 小尾巴 -->
+        <div class="xwb1 mar20 fl"></div>
+
+        <div class="xwb2 mar20 fl"></div>
+
+        <div class="cl"></div>
+
+        <div class="xwb3 mar20 fl"></div>
+        <!-- 月亮 -->
+        <div class="moon mar20 fl"></div>
+
+        <div class="triangle-all mar20 fl"></div>
+
+        <div class="down-triangle mar20 fl"></div>
+
+        <div class="lt-triangle mar20 fl"></div>
+
+        <div class="down-triangle2 mar20 fl"></div>
+
+        <div class="lf-down1 mar20 fl"></div>
+
+        <div class="rt-up1 mar20 fl"></div>
+
+        <div class="lf-down2 mar20 fl"></div>
+
+        <div class="cl"></div>
+        <div class="rt-up2 mar20 fl"></div>
+
+        <div class="rt-down2 mar20 fl"></div>
+
+        <div class="lf-up mar20 fl"></div>
+
+        <!-- 平行四边形 -->
+        <div class="pxsbx1 mar20 fl"></div>
+
+        <div class="pxsbx2 mar20 fl"></div>
+
+        <div class="pxsbx3 mar20 fl"></div>
+
+        <div class="pxsbx4 mar20 fl"></div>
+        <!-- 等腰梯形 -->
+        <div class="dytx mar20 fl"></div>
+
+        <!-- 直角梯形 -->
+        <div class="zjtx mar20 fl"></div>
+
+        <!-- <div class="login-line"></div> -->
+        <!-- 页面折角效果 -->
+        <div class="zhejiao1 mar20 fl"></div>
+
+        <div class="zhejiao2 mar20 fl"></div>
+
+        <div class="zhejiao3 mar20 fl"></div>
+
+        <div class="zhejiao4 mar20 fl"></div>
+
+        <!-- 立体球体 -->
+        <div class="qiuti1 mar20 fl"></div>
+        <div class="qiuti2 mar20 fl"></div>
+        <div class="qiuti3 mar20 fl"></div>
+
+        <!-- 渐变绘制虚线 -->
+    </div>
+
+
+
+    	<style>/* reset css */
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.cl {
+    zoom: 1;
+}
+
+.cl::after {
+    content: "";
+    clear: both;
+    display: block;
+    line-height: 0;
+    font-size: 0;
+    visibility: hidden;
+}
+
+.container {
+    width: 1200px;
+    margin: auto;
+}
+
+.mar20 {
+    margin: 20px;
+}
+
+.circle {
+    width: 120px;
+    height: 120px;
+    background: red;
+    border-radius: 100%;
+}
+
+.ring {
+    width: 100px;
+    height: 100px;
+    background: #fff;
+    border: 10px solid red;
+    border-radius: 100%;
+}
+
+
+/* 四个方向的半圆 */
+
+.up-semicircle,
+.down-semicircle {
+    width: 120px;
+    height: 60px;
+    background: red;
+}
+
+.lf-semicircle,
+.rt-semicircle {
+    width: 60px;
+    height: 120px;
+    background: red;
+}
+
+.up-semicircle {
+    border-radius: 60px 60px 0 0;
+    /* 顺时针方向 四个值分别表示左上角 右上角 右下角 左下角 */
+}
+
+.lf-semicircle {
+    border-radius: 0 60px 60px 0;
+}
+
+.down-semicircle {
+    border-radius: 0 0 60px 60px;
+}
+
+.rt-semicircle {
+    border-radius: 60px 0 0 60px;
+}
+
+
+/* 四分之一圆 扇形 */
+
+.lftop-quadrant,
+.rttop-quadrant,
+.rtdown-quadrant,
+.lfdown-quadrant {
+    width: 60px;
+    height: 60px;
+    background: red;
+}
+
+.lftop-quadrant {
+    border-radius: 60px 0 0 0;
+}
+
+.rttop-quadrant {
+    border-radius: 0 60px 0 0;
+}
+
+.rtdown-quadrant {
+    border-radius: 0 0 60px 0;
+}
+
+.lfdown-quadrant {
+    border-radius: 0 0 0 60px;
+}
+
+.lf-leaf1,
+.rt-leaf1 {
+    width: 60px;
+    height: 60px;
+    background: red;
+}
+
+.lf-leaf1 {
+    border-radius: 0 60px;
+    /* border-radius: 0 60px 0 60px; */
+}
+
+.rt-leaf1 {
+    border-radius: 60px 0;
+}
+
+.lf-leaf2,
+.rt-leaf2,
+.lf-leaf3 {
+    width: 60px;
+    height: 60px;
+    background: red;
+}
+
+.lf-leaf2 {
+    border-radius: 0 30px;
+}
+
+.rt-leaf2 {
+    border-radius: 30px 0;
+}
+
+.lf-leaf3 {
+    border-radius: 30px 30px 0 30px;
+}
+
+.four-leaf {
+    position: relative;
+    width: 130px;
+    height: 130px;
+}
+
+.four-leaf .leaf1,
+.four-leaf .leaf2,
+.four-leaf .leaf3,
+.four-leaf .leaf4 {
+    display: block;
+    width: 60px;
+    height: 60px;
+    background: red;
+    position: absolute;
+}
+
+.four-leaf .leaf1 {
+    border-radius: 30px 30px 0 30px;
+    top: 0;
+    left: 0;
+}
+
+.four-leaf .leaf2 {
+    border-radius: 30px 30px 30px 0;
+    right: 0;
+    top: 0;
+}
+
+.four-leaf .leaf3 {
+    border-radius: 0 30px 30px 30px;
+    right: 0;
+    bottom: 0;
+}
+
+.four-leaf .leaf4 {
+    border-radius: 30px 0 30px 30px;
+    left: 0;
+    bottom: 0;
+}
+
+.five-leaf {
+    width: 150px;
+    height: 150px;
+}
+
+.five-leaf .leaf1,
+.five-leaf .leaf2,
+.five-leaf .leaf3,
+.five-leaf .leaf4,
+.five-leaf .leaf5 {
+    display: block;
+    width: 60px;
+    height: 60px;
+    background: red;
+    position: absolute;
+    border-radius: 0 60px;
+    transform-origin: 100% 100%;
+}
+
+.five-leaf .leaf2 {
+    transform: rotate(72deg);
+}
+
+.five-leaf .leaf3 {
+    transform: rotate(144deg);
+}
+
+.five-leaf .leaf4 {
+    transform: rotate(216deg);
+}
+
+.five-leaf .leaf5 {
+    transform: rotate(288deg);
+}
+
+.infinite {
+    position: relative;
+    width: 140px;
+    height: 60px;
+}
+
+.infinite::before {
+    content: "";
+    display: block;
+    width: 54px;
+    height: 54px;
+    border: 3px solid red;
+    border-radius: 30px 30px 0 30px;
+    transform: rotate(-45deg);
+}
+
+.infinite::after {
+    content: "";
+    display: block;
+    width: 54px;
+    height: 54px;
+    border: 3px solid red;
+    border-radius: 30px 30px 0 30px;
+    transform: rotate(-225deg);
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.live {
+    position: relative;
+    width: 120px;
+    height: 220px;
+}
+
+.lf-live,
+.rt-live {
+    display: block;
+    width: 80px;
+    height: 120px;
+    background: red;
+    border-radius: 40px 40px 0 0;
+    position: absolute;
+}
+
+.lf-live {
+    transform: translateX(80px) rotate(-45deg);
+    transform-origin: 0 100%;
+}
+
+.rt-live {
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+}
+
+.snake {
+    width: 0px;
+    height: 0px;
+    border: 60px solid red;
+    border-right-color: transparent;
+    border-radius: 100%;
+}
+
+.egg {
+    width: 120px;
+    height: 160px;
+    background: red;
+    border-radius: 60px 60px 60px 60px/100px 100px 60px 60px;
+}
+
+.tuoyuan {
+    width: 180px;
+    height: 100px;
+    background: red;
+    border-radius: 100%;
+}
+
+.capsule {
+    width: 180px;
+    height: 100px;
+    background: red;
+    border-radius: 100px;
+}
+
+.xwb1,
+.xwb2 {
+    width: 60px;
+    height: 30px;
+    border-top: 12px solid red;
+}
+
+.xwb1 {
+    border-radius: 0 60px;
+}
+
+.xwb2 {
+    border-radius: 60px 0;
+}
+
+.xwb3 {
+    width: 60px;
+    height: 42px;
+    border-left: 12px solid red;
+    border-radius: 60px 0;
+}
+
+.moon {
+    width: 80px;
+    height: 120px;
+    border-left: 40px solid red;
+    border-radius: 60px;
+}
+
+.triangle-all {
+    width: 0;
+    height: 0;
+    border-width: 40px;
+    border-style: solid;
+    border-top-color: red;
+    border-left-color: aqua;
+    border-bottom-color: blue;
+    border-right-color: blueviolet;
+}
+
+.down-triangle,
+.lt-triangle {
+    width: 0;
+    height: 0;
+    border: 40px solid transparent;
+}
+
+.down-triangle {
+    border-bottom-color: red;
+}
+
+.lt-triangle {
+    border-left-color: red;
+}
+
+.down-triangle2 {
+    width: 0;
+    height: 0;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-bottom: 80px solid red;
+    /* 左边框和右边框决定宽度，下边框决定高度 */
+}
+
+.lf-down1 {
+    border-left: 100px solid red;
+    border-top: 100px solid transparent;
+}
+
+.rt-up1 {
+    border-top: 100px solid red;
+    border-left: 100px solid transparent;
+}
+
+.lf-down2 {
+    border-left: 100px solid red;
+    border-top: 50px solid transparent;
+}
+
+.rt-up2 {
+    border-right: 100px solid red;
+    border-bottom: 50px solid transparent;
+}
+
+.rt-down2 {
+    border-right: 100px solid red;
+    border-top: 50px solid transparent;
+}
+
+.lf-up {
+    border-left: 100px solid red;
+    border-bottom: 50px solid transparent;
+}
+
+.pxsbx1 {
+    width: 120px;
+    height: 80px;
+    background: red;
+    transform: skewX(30deg);
+}
+
+.pxsbx2 {
+    width: 120px;
+    height: 80px;
+    background: red;
+    transform: skewX(-30deg);
+    margin-left: 40px;
+}
+
+.pxsbx3 {
+    width: 80px;
+    height: 120px;
+    background: red;
+    transform: skewY(30deg);
+}
+
+.pxsbx4 {
+    width: 80px;
+    height: 120px;
+    background: red;
+    transform: skewY(-30deg);
+}
+
+
+/* 等腰梯形 */
+
+.dytx {
+    border-left: 40px solid transparent;
+    border-right: 40px solid transparent;
+    border-bottom: 80px solid red;
+    width: 80px;
+}
+
+
+/* 直角梯形 */
+
+.zjtx {
+    width: 80px;
+    height: 80px;
+    background: red;
+    position: relative;
+    margin-right: 120px;
+}
+
+.zjtx::before {
+    content: "";
+    border-left: 80px solid red;
+    border-top: 80px solid transparent;
+    position: absolute;
+    left: 100%;
+    top: 0;
+}
+
+
+/* .login-line {
+    width: 500px;
+    height: 1px;
+    background-image: linear-gradient(to right, #808080, rgba(0, 0, 0, 0), #808080)
+}
+
+.login-line::after {
+    content: "第三方登录";
+} */
+
+
+/* 页面折角效果 */
+
+.zhejiao1 {
+    width: 120px;
+    height: 120px;
+    background-image: linear-gradient(-45deg, #fff 18px, #ace 0);
+}
+
+.zhejiao2 {
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(-45deg, transparent 15px, #ace 0) right, linear-gradient(45deg, transparent 15px, #F8E2EB 0) left;
+    background-size: 50% 100%;
+    background-repeat: no-repeat;
+}
+
+.zhejiao3 {
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(135deg, transparent 15px, #F8E2EB 0) top left, linear-gradient(-135deg, transparent 15px, #ace 0) top right, linear-gradient(-45deg, transparent 15px, #F8E2EB 0) bottom right, linear-gradient(45deg, transparent 15px, #ace 0) bottom left;
+    background-size: 50% 50%;
+    /*每个块在水平和垂直方向上都占元素尺寸的50%*/
+    background-repeat: no-repeat;
+}
+
+.zhejiao4 {
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle at top left, transparent 15px, #F8E2EB 0) top left, radial-gradient(circle at top right, transparent 15px, #ace 0) top right, radial-gradient(circle at bottom right, transparent 15px, #F8E2EB 0) bottom right, radial-gradient(circle at bottom left, transparent 15px, #ace 0) bottom left;
+    background-size: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+
+/* 立体球体 */
+
+.qiuti1 {
+    width: 120px;
+    height: 120px;
+    background-image: radial-gradient(circle at left top, #fff 10%, #ccc 30%, #000 60%, #555 80%, #888 100%);
+    border-radius: 100%;
+}
+
+.qiuti2 {
+    width: 120px;
+    height: 120px;
+    background-image: radial-gradient(circle at top, #fff, green, black);
+    border-radius: 100%;
+}
+
+.qiuti3 {
+    width: 120px;
+    height: 120px;
+    background-image: radial-gradient(circle at 25% 35%, #fff, #2196F3, #3b3a3b);
+    border-radius: 100%;
+}</style>
+	    		<script>function say_hello(){
+	 alert("Hello RunJS!");
+}</script>
+	
+<!-- Generated by RunJS (Thu Oct 25 16:37:16 CST 2018) 1ms --></body></html>
