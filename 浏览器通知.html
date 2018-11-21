@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>HTML5桌面提醒演示--JAE空间</title>
+</head>
+
+<body>
+<form>
+  <input type="button" value="授权" onclick="init();" />
+  <input type="button" value="显示" onclick="notify();" />
+    </form>
+<script type="text/javascript">
+        const miao = 5;
+ 
+        function init() {
+            if (!("Notification" in window)) {
+    alert("This browser does not support desktop notification");
+  } 
+           
+    
+        }
+ 
+        function notify() {
+            if (Notification.permission === "granted") {
+    // If it's okay let's create a notification
+    var options={
+                dir: "ltr",  //控制方向，据说目前浏览器还不支持
+                lang: "utf-8",
+                icon: "http://ihuster.com/static/avatar/m_default.png",
+                body: "你好呀，欢迎留言交流呀"
+            };
+    var n = new Notification("hello word!", options); 
+  }
+
+  // 否则我们需要向用户获取权限
+  else if (Notification.permission !== 'denied') {
+    Notification.requestPermission(function (permission) {
+      // 如果用户同意，就可以向他们发送通知
+      if (permission === "granted") {
+        var options={
+                dir: "ltr",  //控制方向，据说目前浏览器还不支持
+                lang: "utf-8",
+                icon: "http://ihuster.com/static/avatar/m_default.png",
+                body: "你好呀，欢迎留言交流呀"
+            };
+    var n = new Notification("hello word!", options); 
+      }
+    });
+  }
+
+           
+        }
+       </script>
+</body>
+</html>
